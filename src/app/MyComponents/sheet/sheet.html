@@ -1,0 +1,33 @@
+<div ngTabs class="retro-tabs">
+  <!-- Tab List -->
+  <div ngTabList selectionMode="follow" [(selectedTab)]="selectedTab">
+    <div *ngFor="let tab of tabs" ngTab [value]="tab.value">
+      <input type="text" name="tabTitle{{tab.value}}"  class="tab-title-input" [(ngModel)]="tab.title"
+  (ngModelChange)="saveTabs()"/>
+     
+      <button class="close-btn" (click)="removeTab(tab)">×</button>
+    </div>
+    <button class="add-tab-btn" (click)="addTab()">+</button>
+  </div>
+
+  <!-- Tab Panels -->
+  <div *ngFor="let tab of tabs" ngTabPanel [value]="tab.value">
+    <ng-template ngTabContent>
+      <app-add-todo  (todoAdd)="addTodo($event)"></app-add-todo>
+
+      <h4>Your To❤️Dos</h4>
+      <div *ngIf="tab.todos.length === 0; else elseBlock">
+        No todos to show! Please add some todos.
+      </div>
+      <ng-template #elseBlock>
+        <div *ngFor="let todo of tab.todos">
+          <app-todo-item 
+            [todo]="todo"
+            (todoDelete)="deleteTodo($event)"
+            (todoToggle)="toggleTodo($event)">
+          </app-todo-item>
+        </div>
+      </ng-template>
+    </ng-template>
+  </div>
+</div>

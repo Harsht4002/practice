@@ -1,0 +1,147 @@
+[ngTabs] {
+  width: 700px;
+  margin: 30px auto;
+}
+
+[ngTabList] {
+  display: flex;
+  gap: 10px;
+}
+
+[ngTab] {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px;
+  cursor: pointer;
+  text-align: center;
+  background: var(--retro-white);
+  color: var(--retro-black);
+font-size: 8px;            /* smaller font size */
+  padding: 4px 6px;          /* reduce padding to fit smaller text */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative; 
+  box-shadow:
+    4px 4px 0 var(--retro-black),
+    inset 4px 4px 0 var(--retro-shadow-light),
+    inset -4px -4px 0 var(--retro-shadow-dark);
+
+  transition: all 0.1s ease;
+}
+
+/* Hover */
+[ngTab]:hover {
+  background: var(--retro-light-pink);
+}
+
+/* Active tab */
+[ngTab][aria-selected='true'] {
+  background: var(--retro-hot-pink);
+  color: var(--retro-white);
+  transform: translate(4px, 4px);
+  box-shadow:
+    inset 4px 4px 0 var(--retro-shadow-dark),
+    inset -4px -4px 0 var(--retro-shadow-light);
+}
+
+[ngTabPanel] {
+  margin-top: 20px;
+  padding: 20px;
+  background: var(--retro-black);
+  color: var(--retro-white);
+
+  box-shadow:
+    6px 6px 0 var(--retro-black),
+    inset 4px 4px 0 var(--retro-shadow-light),
+    inset -4px -4px 0 var(--retro-shadow-dark);
+}
+
+[ngTabPanel][inert] {
+  display: none;
+}
+
+.add-tab-btn {
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 11px;
+  border-radius: 4px;
+  background: var(--retro-white);
+  color: var(--retro-hot-pink);
+  border: none;
+  cursor: pointer;
+  box-shadow: 3px 3px 0 var(--retro-black);
+  box-shadow: 3px 3px 0 var(--retro-black);
+  align-self: flex-end;
+}
+
+.close-btn {
+  position: absolute;       /* place it on top of the tab */
+  top: 2px;
+  right: 2px;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  line-height: 14px;
+  padding: 0;
+  margin: 0;
+  background: var(--retro-white);
+  color: var(--retro-hot-pink);
+  border: none;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 2px 2px 0 var(--retro-black);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.add-tab-btn:hover,
+.close-btn:hover {
+  background: var(--retro-black);
+  color: var(--retro-white);
+}
+
+.add-tab-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--retro-black);
+}
+.close-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--retro-black);
+}
+.btn {
+  background: var(--retro-white);
+  color: var(--retro-hot-pink);
+  border: none;
+  padding: 8px 12px;
+  font-family: 'Press Start 2P';
+  font-size: 10px;
+  cursor: pointer;
+
+  box-shadow: 4px 4px 0 var(--retro-black);
+  transition: all 0.1s ease;
+}
+
+.btn:hover {
+  background: var(--retro-black);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.tab-title-input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-family: inherit;
+}
